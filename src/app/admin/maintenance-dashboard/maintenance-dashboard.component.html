@@ -1,0 +1,48 @@
+<div class="container">
+    <form #addMaintenenceForm=ngForm (ngSubmit)="onAdd(addMaintenenceForm)">
+        <div class="form-group">
+            <label for="maintenenceName">Enter Maintenence name</label>
+            <input type="text" name="maintenenceName" id="maintenenceName" class="form-control" [(ngModel)]=maintenence.maintenenceName>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="maintenenceOwner">Enter Maintenence owner</label>
+            <input type="text" name="maintenenceOwner" id="maintenenceOwner" class="form-control" [(ngModel)]=maintenence.maintenenceOwner>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="maintenencePriority">Select Priority</label>
+            <select class="custom-select" name="maintenencePriority" id="maintenencePriority" [(ngModel)]=maintenence.maintenencePriority>
+                <option value="HIGH">HIGH</option>
+                <option value="MEDIUM">MEDIUM</option>
+                <option value="LOW">LOW</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="maintenenceStatus">Select Status</label>
+            <select class="custom-select" name="maintenenceStatus" id="maintenenceStatus" [(ngModel)]=maintenence.maintenenceStatus>
+                <option value="ONHOLD">ONHOLD</option>
+                <option value="INPROGRESS">INPROGRESS</option>
+                <option value="COMPLETED">COMPLETED</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="maintenenceStartDate">Enter Maintenence StartDate</label>
+            <input type="date" name="maintenenceStartDate" id="maintenenceStartDate" class="form-control" [(ngModel)]=maintenence.maintenenceStartDate>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="maintenenceEndDate">Enter Maintenence EndDate</label>
+            <input type="date" name="maintenenceEndDate" id="maintenenceEndDate" class="form-control" [(ngModel)]=maintenence.maintenenceEndDate>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="maintenenceImg">Enter Maintenence Image Url</label>
+            <input type="text" name="maintenenceImg" id="maintenenceImg" class="form-control" [(ngModel)]=maintenence.maintenanceImg>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

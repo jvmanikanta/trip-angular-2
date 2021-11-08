@@ -1,1 +1,36 @@
-<p>maintenance-detials works!</p>
+<div [ngClass]="'bg-container'">
+    <div>
+        <div class="card-columns p-3">
+            <div class="card" *ngIf="maintenence">
+                <div class="card-body">
+                    <h4 class="card-title">{{maintenence.maintenenceName}}</h4>
+                    <p class="card-title">{{maintenence.maintenenceId}}</p>
+                    <p class="card-title">{{maintenence.maintenenceOwner}}</p>
+                    <p class="card-title">{{maintenence.maintenenceStartDate}}</p>
+                    <p class="card-title">{{maintenence.maintenenceEndDate}}</p>
+                    <p class="card-title">{{maintenence.maintenencePriority}}</p>
+                    <p class="card-title">{{maintenence.maintenenceStatus}}</p>
+                    <div>
+                        <button class="btn btn-primary" (click)="showTasks()">Click</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="showTask">
+            <h2>Tasks</h2>
+            <div [ngClass]="'bg-container'">
+                <div class="card m-2" *ngFor="let task of taskList">
+                    <div class="card-body">
+                        <h4 class="card-title">{{task.taskName}}</h4>
+                        <p class="card-title">{{task.taskId}}</p>
+                        <p class="card-title">{{task.taskOwner}}</p>
+                        <p class="card-title">{{task.taskStartDate}}</p>
+                        <p class="card-title">{{task.taskEndDate}}</p>
+                        <p class="card-title">{{task.taskPriority}}</p>
+                        <p class="card-title">{{task.taskStatus}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

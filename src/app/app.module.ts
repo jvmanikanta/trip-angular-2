@@ -11,13 +11,18 @@ import { TripModule } from './trip/trip.module';
 import { TaskModule } from './task/task.module';
 import { MaintenanceModule } from './maintenance/maintenance.module';
 import { TechniciansModule } from './technicians/technicians.module';
+import {HttpClientModule} from '@angular/common/http';
+import { GanttModule } from '@syncfusion/ej2-angular-gantt';
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, MonthService, MonthAgendaService, DragAndDropService,ResizeService, TimelineMonth } from '@syncfusion/ej2-angular-schedule';
+import { PopupDirective } from './directives/popup.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactUsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PopupDirective
   ],
   imports: [
     BrowserModule,
@@ -26,9 +31,12 @@ import { TechniciansModule } from './technicians/technicians.module';
     TaskModule,
     MaintenanceModule,
     TechniciansModule,
-    AppRoutingModule
+    HttpClientModule,
+    GanttModule,
+    AppRoutingModule,
+    ScheduleModule, RecurrenceEditorModule
   ],
-  providers: [],
+  providers: [DayService, WeekService, MonthService, MonthAgendaService,DragAndDropService,ResizeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

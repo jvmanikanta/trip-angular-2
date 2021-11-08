@@ -1,0 +1,26 @@
+<div [ngClass]="'sidebar-container'">
+    <div>
+        <h3>Priority</h3>
+        <div>
+            <label><input type="checkbox"  name="priority" (change) = "onClick('HIGH')"> High</label>
+        </div>
+        <div>
+            <label> <input type="checkbox"  name="priority" (change) = "onClick('LOW')"> Low</label>
+        </div>
+        <div>
+            <label><input type="checkbox"  name="priority" (change) = "onClick('MEDIUM')"> Medium</label>
+        </div>
+    </div>
+    <div class="mt-3">
+        <h3>Status</h3>
+        <div>
+            <label><input type="checkbox"  name="priority" (change) = "onClick('INPROGRESS')"> INPROGRESS</label>
+        </div>
+        <div>
+            <label> <input type="checkbox"  name="priority" (change) = "onClick('COMPLETED')"> COMPLETED</label>
+        </div>
+        <div>
+            <label><input type="checkbox"  name="priority" (change) = "onClick('ONHOLD')"> ONHOLD</label>
+        </div>
+    </div>
+</div>

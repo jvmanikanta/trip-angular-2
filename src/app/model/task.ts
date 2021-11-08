@@ -1,4 +1,4 @@
-import { Maintenance } from "./maintenance";
+import { Maintenence } from "./maintenence";
 import { Priority } from "./priority.enum";
 import { Status } from "./status.enum";
 import { Technicians } from "./technicians";
@@ -15,7 +15,7 @@ export class Task {
         public taskDuration: string,
         public taskStatus: Status,
         public techniciansList: Set<Technicians>,
-        public maintenence: Maintenance,
+        public maintenence: Maintenence,
         public trip: Trip
     ){}
 }

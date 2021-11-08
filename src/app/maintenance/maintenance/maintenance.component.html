@@ -1,1 +1,17 @@
-<p>maintenance works!</p>
+<div [ngClass]="'bg-container'">
+    <app-sidebar [onClick]="onClick"></app-sidebar>
+    <div style="height: 100vh;" [ngClass]="'maintenence-container'">
+        <ejs-schedule #scheduleObj height="650px" [eventSettings]="eventSettings" readonly="true">
+            <e-views>
+                <e-view option='TimelineMonth' dateFormat='dd-MMM-yyyy'>
+                    <ng-template #eventSettingsTemplate let-data>
+                        <div (click)="showMaintenenceDetails(data)">
+                            <div>name: {{data.maintenenceName}} | owner: {{data.maintenenceOwner}}</div>
+                            <div>Priority: {{data.maintenencePriority}} | Status: {{data.maintenenceStatus}}</div>
+                        </div>
+                    </ng-template>
+                </e-view>
+            </e-views>
+        </ejs-schedule>
+    </div>
+</div>
