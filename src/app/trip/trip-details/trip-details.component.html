@@ -1,1 +1,42 @@
-<p>trip-details works!</p>
+<div [ngClass]="'bg'">
+    <div style="width: 600px;">
+        <div class="card-columns p-5">
+
+            <div class="card" style="width: 500px;">
+                <div [ngClass]="'boarder'">
+
+
+                    <img src="https://cdn1.bikebandit-images.com/blog/images/2015/group-motorcycle-riding-1.jpg" [ngClass]="'image'">
+
+                </div>
+                <div class=" card-body " *ngIf="trip" [ngClass]="[ 'shadow', 'font','center','styles','boarder'] ">
+                    <h4 class="card-title ">{{trip.tripName}}</h4>
+                    <p class="card-text ">TaskOwner : {{trip.tripOwner}}</p>
+                    <p class="card-text ">StartDate : {{trip.tripStartDate}}</p>
+                    <p class="card-text ">EndDate : {{trip.tripEndDate}}</p>
+                    <p class="card-text ">Priority : {{trip.tripPriority}}</p>
+                    <p class="card-text ">Duration : {{trip.tripDuration}}</p>
+                    <p class="card-text ">Status : {{trip.tripStatus}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:30px;">
+        <ejs-schedule #scheduleObj height="650px" [eventSettings]="eventSettings" readonly="true">
+            <e-views>
+                <e-view option='TimelineMonth' dateFormat='dd-MMM-yyyy'>
+                    <div>
+                        <ng-template #eventSettingsTemplate let-data>
+                            <div (click)="goToTask(data)">
+                                <div>name: {{data.maintenenceName}} | owner: {{data.maintenenceOwner}}</div>
+                                <div>Priority: {{data.maintenencePriority}} | Status: {{data.maintenenceStatus}}</div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </e-view>
+            </e-views>
+        </ejs-schedule>
+    </div>
+</div>

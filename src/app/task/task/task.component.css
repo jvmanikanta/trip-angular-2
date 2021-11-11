@@ -1,0 +1,16 @@
+.bg-container {
+    min-height: 100vh;
+    background-color: rgb(208, 238, 238);
+    display: flex;
+}
+
+.maintenence-container {
+    padding: 20px;
+}
+
+.sidebar-container {
+    height: 100vh;
+    background-color: beige;
+    width: 200px;
+    padding: 20px;
+}

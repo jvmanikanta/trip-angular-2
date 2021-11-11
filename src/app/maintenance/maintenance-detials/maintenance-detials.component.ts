@@ -1,12 +1,14 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { EventSettingsModel, TimelineMonthService } from '@syncfusion/ej2-angular-schedule';
 import { Maintenence } from 'src/app/model/maintenence';
 import { Task } from 'src/app/model/task';
 import { MaintenanceService } from 'src/app/services/maintenance.service';
-import { domainToASCII } from 'url';
+
 
 @Component({
   selector: 'app-maintenance-detials',
+  providers: [TimelineMonthService],
   templateUrl: './maintenance-detials.component.html',
   styleUrls: ['./maintenance-detials.component.css']
 })
@@ -15,8 +17,10 @@ export class MaintenanceDetialsComponent implements OnInit {
   maintenence:Maintenence
   maintenenceId:number
   taskList: Task[]
-  showTask: string = "hide"
-  constructor(private maintenenceService:MaintenanceService, private activatedRoute:ActivatedRoute, private elementRef:ElementRef) { }
+  showTask: boolean = false;
+  
+  eventSettings: EventSettingsModel;
+  constructor(private maintenenceService:MaintenanceService,private route:Router, private activatedRoute:ActivatedRoute, private elementRef:ElementRef) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((map)=>{
@@ -33,7 +37,13 @@ export class MaintenanceDetialsComponent implements OnInit {
     this.maintenenceService.getTaskByMaintenenceId(this.maintenenceId).subscribe(
       (taskList) => {
         this.taskList = taskList;
-      },
+        this.eventSettings = {dataSource: this.taskList,
+          fields: {
+            subject: {name: 'taskName'},
+            startTime: {name: 'taskStartDate'},
+            endTime: {name: 'taskEndDate'}
+          }}
+        },
       (error) => console.log(error),
       () => console.log("completed")
     )
@@ -41,7 +51,16 @@ export class MaintenanceDetialsComponent implements OnInit {
   }
 
   showTasks = () => {
-    this.showTask = "show";
+    if(!this.showTask){
+      this.showTask = true;
+    }else{
+      this.showTask = false;
+    }
+  }
+
+  goToTask = (task: Task) => {
+    console.log("hello");
+    this.route.navigate(["task-details",task.taskId]);
   }
 
 

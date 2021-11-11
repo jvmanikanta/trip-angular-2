@@ -10,7 +10,7 @@ import { RecurrenceEditorModule, ScheduleModule } from '@syncfusion/ej2-angular-
 
 
 @NgModule({
-  declarations: [MaintenanceComponent, MaintenanceDetialsComponent, SidebarComponent],
+  declarations: [MaintenanceComponent, MaintenanceDetialsComponent,SidebarComponent],
   imports: [
     CommonModule,
     GanttModule,

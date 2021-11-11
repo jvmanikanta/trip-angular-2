@@ -15,6 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { GanttModule } from '@syncfusion/ej2-angular-gantt';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, MonthService, MonthAgendaService, DragAndDropService,ResizeService, TimelineMonth } from '@syncfusion/ej2-angular-schedule';
 import { PopupDirective } from './directives/popup.directive';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [

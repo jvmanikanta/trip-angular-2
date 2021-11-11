@@ -41,4 +41,15 @@ export class MaintenanceService {
     //let url = this.baseurl + "/maintenence";
     return this._http.post<Maintenence>(url,maintenence); 
   }
+
+  assignTask(maintenenceId:number,taskId:number): Observable<string>{
+    let url = this.baseurl + "/maintenence/task/assigntask/maintenenceId/"+ maintenenceId +"/taskId/"+ taskId
+    return this._http.get<string>(url);
+  }
+
+  updateMaintenance(maintenence: Maintenence): Observable<Maintenence>{
+    //let url = this.baseurl + "/maintenence";
+    let url = "http://localhost:8082/maintenence-service/maintenence";
+    return this._http.put<Maintenence>(url,maintenence);
+  }
 }

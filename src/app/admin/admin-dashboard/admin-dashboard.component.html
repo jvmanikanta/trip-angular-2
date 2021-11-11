@@ -1,0 +1,9 @@
+<div class="container" style="display: flex;">
+    <button class="btn btn-primary" style="margin: 30px;" (click)="onClickTrip()"> Trips</button>
+    <button class="btn btn-primary" style="margin: 30px;" (click)="onClickMaintenence()"> Maintenence</button>
+    <button class="btn btn-primary" style="margin: 30px;" (click)="onClickTasks()"> Tasks</button>
+</div>
+
+<div class="container" *ngIf="isMaintenenceClicked">
+    <app-maintenance-dashboard></app-maintenance-dashboard>
+</div>

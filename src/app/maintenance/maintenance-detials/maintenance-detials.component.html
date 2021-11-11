@@ -1,36 +1,42 @@
-<div [ngClass]="'bg-container'">
-    <div>
-        <div class="card-columns p-3">
-            <div class="card" *ngIf="maintenence">
-                <div class="card-body">
-                    <h4 class="card-title">{{maintenence.maintenenceName}}</h4>
-                    <p class="card-title">{{maintenence.maintenenceId}}</p>
-                    <p class="card-title">{{maintenence.maintenenceOwner}}</p>
-                    <p class="card-title">{{maintenence.maintenenceStartDate}}</p>
-                    <p class="card-title">{{maintenence.maintenenceEndDate}}</p>
-                    <p class="card-title">{{maintenence.maintenencePriority}}</p>
-                    <p class="card-title">{{maintenence.maintenenceStatus}}</p>
+<div [ngClass]="'bg'">
+    <div style="width: 600px;">
+        <div class="card-columns p-5">
+
+            <div class="card" style="width: 500px;">
+                <div [ngClass]="'boarder'">
+
+
+                    <img src="https://cdn1.bikebandit-images.com/blog/images/2015/group-motorcycle-riding-1.jpg" [ngClass]="'image'">
+
+                </div>
+                <div class=" card-body " *ngIf="maintenence " [ngClass]="[ 'shadow', 'font','center','styles','boarder'] ">
+                    <h4 class="card-title ">{{maintenence.taskName}}</h4>
+                    <p class="card-text ">TaskOwner : {{maintenence.maintenenceOwner}}</p>
+                    <p class="card-text ">StartDate : {{maintenence.maintenenceStartDate}}</p>
+                    <p class="card-text ">EndDate : {{maintenence.maintenenceEndDate}}</p>
+                    <p class="card-text ">Priority : {{maintenence.maintenencePriority}}</p>
+                    <p class="card-text ">Duration : {{maintenence.maintenenceDuration}}</p>
+                    <p class="card-text ">Status : {{maintenence.maintenenceStatus}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:30px;">
+        <ejs-schedule #scheduleObj height="650px" [eventSettings]="eventSettings" readonly="true">
+            <e-views>
+                <e-view option='TimelineMonth' dateFormat='dd-MMM-yyyy'>
                     <div>
-                        <button class="btn btn-primary" (click)="showTasks()">Click</button>
+                        <ng-template #eventSettingsTemplate let-data>
+                            <div (click)="goToTask(data)">
+                                <div>name: {{data.taskName}} | owner: {{data.taskOwner}}</div>
+                                <div>Priority: {{data.taskPriority}} | Status: {{data.taskStatus}}</div>
+                            </div>
+                        </ng-template>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div [ngClass]="showTask">
-            <h2>Tasks</h2>
-            <div [ngClass]="'bg-container'">
-                <div class="card m-2" *ngFor="let task of taskList">
-                    <div class="card-body">
-                        <h4 class="card-title">{{task.taskName}}</h4>
-                        <p class="card-title">{{task.taskId}}</p>
-                        <p class="card-title">{{task.taskOwner}}</p>
-                        <p class="card-title">{{task.taskStartDate}}</p>
-                        <p class="card-title">{{task.taskEndDate}}</p>
-                        <p class="card-title">{{task.taskPriority}}</p>
-                        <p class="card-title">{{task.taskStatus}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </e-view>
+            </e-views>
+        </ejs-schedule>
     </div>
 </div>

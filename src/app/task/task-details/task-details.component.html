@@ -1,1 +1,27 @@
-<p>task-details works!</p>
+<div [ngClass]="'bg'">
+    <div style="width: 600px;">
+        <div class="card-columns p-5">
+
+            <div class="card" style="width: 500px;">
+                <div [ngClass]="'boarder'">
+
+
+                    <img src="https://cdn1.bikebandit-images.com/blog/images/2015/group-motorcycle-riding-1.jpg" [ngClass]="'image'">
+
+                </div>
+                <div class=" card-body " *ngIf="task " [ngClass]="[ 'shadow', 'font','center','styles','boarder'] ">
+                    <h4 class="card-title ">{{task.taskName}}</h4>
+                    <p class="card-text ">TaskOwner : {{task.taskOwner}}</p>
+                    <p class="card-text ">StartDate : {{task.taskStartDate}}</p>
+                    <p class="card-text ">EndDate : {{task.taskEndDate}}</p>
+                    <p class="card-text ">Priority : {{task.taskPriority}}</p>
+                    <p class="card-text ">Duration : {{task.taskDuration}}</p>
+                    <p class="card-text ">Status : {{task.taskStatus}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:30px;">
+    </div>
+</div>

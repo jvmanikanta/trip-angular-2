@@ -1,0 +1,35 @@
+.bg-container {
+    background-image: url("https://dmgupcwbwy0wl.cloudfront.net/system/images/000/300/878/160b26bc2e280d83db6ada2224d6107e/banner/DSC00399.jpg?1572400368");
+    height: 90vh;
+    width: 100vw;
+    background-size: cover;
+}
+
+.center {
+    left: 0;
+    line-height: 200px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+
+.item {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.7;
+}
+
+.style {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(54, 221, 20)
+}
