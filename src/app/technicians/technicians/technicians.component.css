@@ -1,0 +1,15 @@
+.bg {
+    background-image: url("C:\Users\ManikantaJV\training\angular demos\dream-trip\src\assets\images\technicians\industrial-worker-working-production-line-factory_342744-177.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+
+.newbg {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.newshadow {
+    box-shadow: 10px 10px 10px rgb(74, 73, 75);
+}

@@ -1,1 +1,12 @@
-<p>technicians-details works!</p>
+<div class="card-columns p-5 " [ngClass]="'design'">
+    <div class="card " *ngIf="technicians">
+
+        <div class="card-body">
+            <h4 class="card-title">{{technicians.workersId}}</h4>
+            <h4 class="card-title">{{technicians.workersName}}</h4>
+            <h4 class="card-title">{{technicians.workersType}}</h4>
+            <h4 class="card-title">{{technicians.workersavailablefrom}}</h4>
+            <h4 class="card-title">{{technicians.workersavailableto}}</h4>
+            <h4 class="card-title">{{technicians.availability}}</h4>
+        </div>
+    </div>

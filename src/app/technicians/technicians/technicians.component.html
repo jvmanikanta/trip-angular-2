@@ -1,1 +1,19 @@
-<p>technicians works!</p>
+<div class="fluid-container p-5" [ngClass]="'bg'">
+    <div class="row">
+        <div class="card text-left p-5 md-4" [ngClass]="'prior'">
+            <div class="card-body">
+                <h4 class="card-title">Availability</h4>
+                <input type="checkbox" class="m-2" name="AVAILABLE" id="AVAILABLE" (change)="ApplyFilterAvailable('AVAILABLE')">AVAILABLE <br>
+                <input type="checkbox" class="m-2" name="NOT-AVAILABLE" id="NOT-AVAILABLE" (change)="ApplyFilterNotAvailable('NOT-AVAILABLE')">NOT-AVAILABLE <br>
+            </div>
+        </div>
+        <div class="col col-md-4">
+            <div class="card text-left m-3" [ngClass]="'newshadow'" *ngFor="let technician of techniciansList" (click)="onClick(technician)">
+                <div class="card-body" [ngClass]="'newbg'">
+                    <h4 class="card-title">{{technician.workersName}}</h4>
+                    <h4 class="card-title">{{technician.workersType}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
