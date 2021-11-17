@@ -1,0 +1,139 @@
+<div class="container">
+    <div style="display: flex; margin: 20px;">
+        <button class="btn btn-primary" style="margin: 20px;" (click)=addForm()>Add Form</button>
+        <button class="btn btn-primary" style="margin: 20px;" (click)=assignForm()>Assign Form</button>
+        <button class="btn btn-primary" style="margin: 20px;" (click)=updateForm()>Update Form</button>
+    </div>
+    <div *ngIf="isAddClicked">
+        <form #addTaskForm=ngForm (ngSubmit)="onAdd(addTaskForm)">
+            <div class="form-group">
+                <label for="taskName">Enter Task name</label>
+                <input type="text" name="taskName" id="taskName" class="form-control" [(ngModel)]=task.taskName>
+                <small id="helpId" class="text-muted">Help text</small>
+            </div>
+            <div class="form-group">
+                <label for="taskDuration">Enter Task Duration</label>
+                <input type="text" name="taskDuration" id="taskDuration" class="form-control" [(ngModel)]=task.taskDuration>
+                <small id="helpId" class="text-muted">Help text</small>
+            </div>
+            <div class="form-group">
+                <label for="taskOwner">Enter Task owner</label>
+                <input type="text" name="taskOwner" id="taskOwner" class="form-control" [(ngModel)]=task.taskOwner>
+                <small id="helpId" class="text-muted">Help text</small>
+            </div>
+            <div class="form-group">
+                <label for="taskPriority">Select Priority</label>
+                <select class="custom-select" name="taskPriority" id="taskPriority" [(ngModel)]=task.taskPriority>
+                <option value="HIGH">HIGH</option>
+                <option value="MEDIUM">MEDIUM</option>
+                <option value="LOW">LOW</option>
+            </select>
+            </div>
+            <div class="form-group">
+                <label for="taskStatus">Select Status</label>
+                <select class="custom-select" name="taskStatus" id="taskStatus" [(ngModel)]=task.taskStatus>
+                <option value="ONHOLD">ONHOLD</option>
+                <option value="INPROGRESS">INPROGRESS</option>
+                <option value="COMPLETED">COMPLETED</option>
+            </select>
+            </div>
+            <div class="form-group">
+                <label for="taskStartDate">Enter Task StartDate</label>
+                <input type="date" name="taskStartDate" id="taskStartDate" class="form-control" [(ngModel)]=task.taskStartDate>
+                <small id="helpId" class="text-muted">Help text</small>
+            </div>
+            <div class="form-group">
+                <label for="taskEndDate">Enter Task EndDate</label>
+                <input type="date" name="taskEndDate" id="taskEndDate" class="form-control" [(ngModel)]=task.taskEndDate>
+                <small id="helpId" class="text-muted">Help text</small>
+            </div>
+            <div class="form-group">
+                <label for="taskImg">Enter Task Image Url</label>
+                <input type="text" name="taskImg" id="taskImg" class="form-control" [(ngModel)]=task.taskImg>
+                <small id="helpId" class="text-muted">Help text</small>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- *****************************************assign task********************************************** -->
+
+<div class="container" *ngIf="isAssignClicked">
+    <form>
+        <div class="form-group">
+            <label for="taskId">Enter Task Id</label>
+            <input type="text" name="taskId" id="taskId" class="form-control" (change)="onTaskIdChange()">
+            <small id="helpId" style="color: red;">{{merrorMsg}}</small>
+        </div>
+        <div class="form-group">
+            <label for="workerId">Enter Workers Id</label>
+            <input type="text" name="workerId" id="workerId" class="form-control" (change)="onWorkerIdChange()">
+            <small id="helpId" style="color: red;">{{terrorMsg}}</small>
+        </div>
+        <button (click)="onClickSubmit()" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- **********************************************Update Form ************************************************* -->
+<div class="container" *ngIf="isUpdateClicked">
+    <form #UpdateForm=ngForm (ngSubmit)="onUpdate(UpdateForm)">
+        <div class="form-group">
+            <label for="taskId">Enter Task Id</label>
+            <input type="text" name="taskId" id="taskId" class="form-control" (change)="onEnterId()" [(ngModel)]=utask.taskId>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="taskName">Enter Task name</label>
+            <input type="text" name="TaskName" id="taskName" class="form-control" [(ngModel)]=utask.taskName>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="taskDuration">Enter Task Duration</label>
+            <input type="text" name="taskDuration" id="taskDuration" class="form-control" [(ngModel)]=utask.taskDuration>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="taskOwner">Enter Task owner</label>
+            <input type="text" name="taskOwner" id="taskOwner" class="form-control" [(ngModel)]=utask.taskOwner>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="taskPriority">Select Priority</label>
+            <select class="custom-select" name="taskPriority" id="taskPriority" [(ngModel)]=utask.taskPriority>
+            <option value="HIGH">HIGH</option>
+            <option value="MEDIUM">MEDIUM</option>
+            <option value="LOW">LOW</option>
+        </select>
+        </div>
+        <div class="form-group">
+            <label for="taskStatus">Select Status</label>
+            <select class="custom-select" name="taskStatus" id="taskStatus" [(ngModel)]=utask.taskStatus>
+            <option value="ONHOLD">ONHOLD</option>
+            <option value="INPROGRESS">INPROGRESS</option>
+            <option value="COMPLETED">COMPLETED</option>
+        </select>
+        </div>
+        <div class="form-group">
+            <label for="taskStartDate">Enter Task StartDate</label>
+            <input type="date" name="taskStartDate" id="taskStartDate" class="form-control" [(ngModel)]=utask.taskStartDate>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="taskEndDate">Enter Task EndDate</label>
+            <input type="date" name="taskEndDate" id="taskEndDate" class="form-control" [(ngModel)]=utask.taskEndDate>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="taskImg">Enter Task Image Url</label>
+            <input type="text" name="taskImg" id="taskImg" class="form-control" [(ngModel)]=utask.taskImg>
+            <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

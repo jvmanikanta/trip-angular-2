@@ -105,8 +105,14 @@ export class MaintenanceDashboardComponent implements OnInit {
     if((this.merrorMsg == "" && this.terrorMsg == "")){
       console.log('submitted');
       this._maintenenceService.assignTask(this.maintenanceId, this.taskId).subscribe(
-        (response) => console.log('assigned'),
-        (error) => console.log("assigned"),
+        (response) => {
+          console.log('assigned')
+         
+        },
+        (error) => {
+          console.log("assigned")
+          alert("Assigned");
+        },
         () => console.log('completed')
       )
     }else{
@@ -118,7 +124,7 @@ export class MaintenanceDashboardComponent implements OnInit {
     if(!this.isAddClicked){
       this.isAddClicked = true;
       this.isAssignClicked = false;
-      this.isUpdateClicked = true;
+      this.isUpdateClicked = false;
     }else{
       this.isAddClicked = false;
     }
@@ -150,6 +156,7 @@ export class MaintenanceDashboardComponent implements OnInit {
     this._maintenenceService.updateMaintenance(this.umaintenence).subscribe(
       (response) => {
         console.log(response);
+        alert("Updated");
         this.umaintenence = this.maintenence;
       },
       (error) => console.log(error),

@@ -33,6 +33,7 @@ export class TaskComponent implements OnInit {
       this._taskService.getAllTasks().subscribe(
         (taskList)=>{
           this.taskList = taskList;
+          console.log(this.taskList);
           this.eventSettings = {dataSource: this.taskList,
             fields: {
               subject: {name: 'taskName'},

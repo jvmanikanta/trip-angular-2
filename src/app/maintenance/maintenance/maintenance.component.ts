@@ -84,7 +84,7 @@ export class MaintenanceComponent implements OnInit {
       fields:{
         subject: {name: 'maintenenceName'},
         startTime: {name: 'maintenenceStartDate'},
-        endTime: {name: 'maintenenceEndDate'}
+        endTime: {name: 'maintenenceEndDate'},
       }}
     }
     else{
